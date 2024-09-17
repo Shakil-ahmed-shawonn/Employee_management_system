@@ -1,0 +1,22 @@
+{% extends "employees/base_generic.html" %}
+
+{% block content %}
+  <h1>Employee List</h1>
+  <ul>
+    {% for employee in employees %}
+        <li> 
+        <strong>{{ employee.name }}</strong> - {{ employee.designation }}<br>
+        {{ employee.short_description }}
+        <a href="{% url 'delete_employee' employee.pk %}">Delete Employee</a> <br>
+        <a href="{% url 'update_employee' employee.pk %}">Update Employee</a>
+      </li> 
+
+      <!-- <h1>{{ employee.name }}</h1>
+      <h1>{{ employee.address }}</h1>
+      <h1>{{ employee.phone_number }}</h1>
+      <h1>{{ employee.salary }}</h1>
+      <h1>{{ employee.designation }}</h1>
+      <h1>{{ employee.short_description }}</h1> -->
+    {% endfor %}
+  </ul>
+{% endblock %}
